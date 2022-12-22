@@ -156,26 +156,8 @@ void zad2(int a[n][n], int k) {
     }
 }
 
+int zad3(char ulaz2[], char ulaz[]) {
 
-int main() {
-    int n = 7;
-    //scanf("%d", &n);
-    //printf("%lf\n", zad1(n, n * (n+1), n, 1));
-    //printf("%lf\n", zad1a(n));
-    /*int matrix[][6] = {{3, 2, 6, 4, 5, 8},
-                       {7, 4, 3, 2, 7, 1},
-                       {0, 5, 6, 9, 2, 3},
-                       {0, 7, 9, 4, 9, 4},
-                       {9, 2, 2, 9, 4, 9},
-                       {4, 3, 2, 4, 3, 2}};
-    print(matrix);
-    zad2(matrix, 8);
-    printf("\n");
-    print(matrix);*/
-    /*char ulaz2[] ="BBDDADADA";
-    char ulaz[] = "ABBDA";*/
-    char ulaz[] = "abc";
-    char ulaz2[] ="cbaebabacd";
     int max = -1, min = 300;
     for (int i = 0; i < strlen(ulaz); ++i) {
         if (ulaz[i] > max) {
@@ -227,12 +209,12 @@ int main() {
         }
         duzinaSubStringa = 0;
     }
-    int pSum2=0;
-    int josVeciBrojac=0;
+    int pSum2 = 0;
+    int josVeciBrojac = 0;
     for (int i = 0; i < length; ++i) {
         char subString[duzineSubStringova[pSum2] + 1];
         pSum2++;
-        int veciBrojac=0;
+        int veciBrojac = 0;
         int pok = 0;
         if (bucket[i] == 0) {
             pSum2--;
@@ -249,27 +231,50 @@ int main() {
                 }
             }
         }
-        subString[duzineSubStringova[pSum2-1]] = 0;
+        subString[duzineSubStringova[pSum2 - 1]] = 0;
 
         for (int j = 0; j < strlen(ulaz2); ++j) {
-            int brojac=0;
-            for (int k = 0; k < duzineSubStringova[pSum2-1]; ++k) {
-                if(ulaz2[j+k]==subString[k]){
+            int brojac = 0;
+            for (int k = 0; k < duzineSubStringova[pSum2 - 1]; ++k) {
+                if (ulaz2[j + k] == subString[k]) {
                     brojac++;
                 }
             }
-            if(brojac==duzineSubStringova[pSum2-1]){
+            if (brojac == duzineSubStringova[pSum2 - 1]) {
                 veciBrojac++;
             }
 
         }
-        if(veciBrojac!=0){
-            josVeciBrojac+=veciBrojac;
+        if (veciBrojac != 0) {
+            josVeciBrojac += veciBrojac;
 
         }
-        printf("%s-%d\n",subString,veciBrojac);
+        printf("%s-%d\n", subString, veciBrojac);
 
     }
-    printf("%d",josVeciBrojac);
+    printf("%d", josVeciBrojac);
+    return josVeciBrojac;
+}
+
+int main() {
+    int n = 7;
+    //scanf("%d", &n);
+    //printf("%lf\n", zad1(n, n * (n+1), n, 1));
+    //printf("%lf\n", zad1a(n));
+    /*int matrix[][6] = {{3, 2, 6, 4, 5, 8},
+                       {7, 4, 3, 2, 7, 1},
+                       {0, 5, 6, 9, 2, 3},
+                       {0, 7, 9, 4, 9, 4},
+                       {9, 2, 2, 9, 4, 9},
+                       {4, 3, 2, 4, 3, 2}};
+    print(matrix);
+    zad2(matrix, 8);
+    printf("\n");
+    print(matrix);*/
+    char ulaz2[] ="BBDDADADA";
+    char ulaz[] = "ABBDA";
+    /*char ulaz[] = "abc";
+    char ulaz2[] = "cbaebabacd";*/
+    zad3(ulaz2, ulaz);
     return 0;
 }
